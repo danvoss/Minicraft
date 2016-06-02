@@ -11,7 +11,7 @@ import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 public class MyGdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
-	TextureRegion down, up, stand, right, left;
+	TextureRegion down, up, stand, right, left, tree;
 	float x, y, xv, yv;
 
 	static final float MAX_VELOCITY = 100;
@@ -24,6 +24,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		Texture tiles = new Texture("tiles.png");
+		TextureRegion[][] treeGrid = TextureRegion.split(tiles, 18, 12);
 		TextureRegion[][] grid = TextureRegion.split(tiles, 16, 16);
 		down = grid[6][0];
 		up = grid[6][1];
@@ -31,6 +32,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		right = grid[6][3];
 		left = new TextureRegion(right);
 		left.flip(true, false);
+		tree = treeGrid[1][0];
 	}
 
 	@Override
@@ -71,6 +73,14 @@ public class MyGdxGame extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		batch.draw(img, x, y, WIDTH * 3, HEIGHT * 3);
+		batch.draw(tree, 300, 300, 30, 30);
+		batch.draw(tree, 195, 453, 35, 35);
+		batch.draw(tree, 547, 234, 32, 32);
+		batch.draw(tree, 222, 123, 28, 28);
+		batch.draw(tree, 432, 564, 30, 30);
+		batch.draw(tree, 100, 80, 30, 30);
+		batch.draw(tree, 80, 300, 26, 26);
+		batch.draw(tree, 520, 80, 28, 28);
 		batch.end();
 	}
 
