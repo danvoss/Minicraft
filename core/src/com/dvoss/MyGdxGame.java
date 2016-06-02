@@ -54,6 +54,19 @@ public class MyGdxGame extends ApplicationAdapter {
 			img = stand;
 		}
 
+		if (x < 0) {
+			x = 600;
+		}
+		if (x > 600) {
+			x = 0;
+		}
+		if (y < 0) {
+			y = 600;
+		}
+		if (y > 600) {
+			y = 0;
+		}
+
 		Gdx.gl.glClearColor(0, 1, 0.4f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
