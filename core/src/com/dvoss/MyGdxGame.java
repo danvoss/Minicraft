@@ -11,7 +11,7 @@ import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 public class MyGdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
-	TextureRegion down, up, stand, right, left, tree;
+	TextureRegion down, up, stand, right, left, tree, zombie;
 	float x, y, xv, yv;
 
 	static final float MAX_VELOCITY = 100;
@@ -33,6 +33,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		left = new TextureRegion(right);
 		left.flip(true, false);
 		tree = treeGrid[1][0];
+		zombie = grid[6][7];
 	}
 
 	@Override
@@ -72,7 +73,8 @@ public class MyGdxGame extends ApplicationAdapter {
 		Gdx.gl.glClearColor(0, 1, 0.4f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-		batch.draw(img, x, y, WIDTH * 3, HEIGHT * 3);
+		batch.draw(img, x, y, WIDTH * 2, HEIGHT * 2);
+		batch.draw(zombie, 500, 500, 30, 30);
 		batch.draw(tree, 300, 300, 30, 30);
 		batch.draw(tree, 195, 453, 35, 35);
 		batch.draw(tree, 547, 234, 32, 32);
