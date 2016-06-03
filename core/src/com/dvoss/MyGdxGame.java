@@ -159,7 +159,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		}
 
 		BitmapFont font = new BitmapFont();
-		CharSequence obj = "Run through the trees to power up, and avoid the dangerous Jelly and deadly Monster!";
+		CharSequence obj = "Run through the trees to power up, and avoid the dangerous Blob and deadly Zombie!";
 
 		Gdx.gl.glClearColor(0, 1, 0.4f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
