@@ -6,6 +6,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
@@ -17,6 +18,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
 	TextureRegion down, up, stand, right, left, tree, zombie_u, zombie_d, zombie_r, zombie_l, zombie_s, jelly1, jelly2;
 	float x, y, xv, yv, zom_x, zom_y, zom_xv, zom_yv, jel_y, jel_x, jel_yv, jel_xv;
+	BitmapFont font;
 
 
 	static final float MAX_VELOCITY = 100;
@@ -123,12 +125,6 @@ public class MyGdxGame extends ApplicationAdapter {
 		else {
 			j_img = jelly2;
 		}
-		if (jel_xv > 0) {
-			j_img = jelly2;
-		}
-		else {
-			j_img = jelly1;
-		}
 
 		if (jel_x < 0) {
 			jel_x = 600;
@@ -162,10 +158,13 @@ public class MyGdxGame extends ApplicationAdapter {
 			sound3.play(1.0f);
 		}
 
+		BitmapFont font = new BitmapFont();
+		CharSequence obj = "Run through the trees to power up, and avoid the dangerous Jelly and deadly Monster!";
 
 		Gdx.gl.glClearColor(0, 1, 0.4f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
+		font.draw(batch, obj, 25, 25);
 		batch.draw(img, x, y, WIDTH * 2, HEIGHT * 2);
 		batch.draw(z_img, zom_x, zom_y, WIDTH * 2, HEIGHT * 2);
 		batch.draw(j_img, jel_x, jel_y, WIDTH * 2, HEIGHT * 2);
